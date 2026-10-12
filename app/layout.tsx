@@ -1,10 +1,14 @@
+
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RunningTicker from "@/components/RunningTicker";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.naukriexpress.in";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://www.naukriexpress.space";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -47,7 +51,11 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -60,10 +68,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        {/* Google AdSense Verification Code */}
+        <Script
+          id="google-adsense"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7337308462039392"
+          strategy="beforeInteractive"
+          crossOrigin="anonymous"
+        />
+
+        {/* Organization Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(orgSchema),
+          }}
         />
+
         <RunningTicker />
         <Header />
         <main className="min-h-[70vh]">{children}</main>
