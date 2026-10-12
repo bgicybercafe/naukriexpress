@@ -12,6 +12,12 @@ const SITE_URL =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+
+  // Google AdSense Meta Verification
+  other: {
+    "google-adsense-account": "ca-pub-7337308462039392",
+  },
+
   title: {
     default: "NaukriExpress - Latest Government & Private Job Vacancies in India",
     template: "%s | NaukriExpress",
@@ -68,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Google AdSense Verification Code */}
+        {/* Google AdSense Script */}
         <Script
           id="google-adsense"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7337308462039392"
