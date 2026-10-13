@@ -8,6 +8,8 @@ const NAV_LINKS = [
   { href: "/jobs", label: "Latest Jobs" },
   { href: "/jobs?jobType=government", label: "Government Jobs" },
   { href: "/jobs?state=Maharashtra", label: "Maharashtra Jobs" },
+  { href: "/jobs?jobType=apprenticeship", label: "Apprenticeships" },
+  { href: "/jobs?jobType=scholarship", label: "Scholarships" },
   { href: "/admit-card", label: "Admit Card" },
   { href: "/results", label: "Results" },
   { href: "/answer-key", label: "Answer Key" },
@@ -139,7 +141,7 @@ export default async function Header() {
 
         {/* Mobile Side Drawer */}
         <div
-          className="absolute right-0 top-0 flex h-full w-[85%] max-w-sm translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 peer-checked:translate-x-0"
+          className="absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300"
           style={{ height: "100dvh" }}
         >
           {/* Drawer Header */}
